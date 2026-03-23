@@ -1,6 +1,6 @@
 "use client";
 
-import { use, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import {
   ArrowLeft,
@@ -62,9 +62,9 @@ function getConditionBadge(condition: string) {
 export default function PurchaseDetailPage({
   params,
 }: {
-  params: Promise<{ id: string }>;
+  params: { id: string };
 }) {
-  const { id } = use(params);
+  const { id } = params;
   const purchase = purchases.find((p) => p.id === id);
   const [receiptOpen, setReceiptOpen] = useState(false);
 

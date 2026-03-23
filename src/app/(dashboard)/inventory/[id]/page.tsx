@@ -1,6 +1,6 @@
 "use client";
 
-import { use } from "react";
+import * as React from "react";
 import Link from "next/link";
 import { inventories, purchaseItems } from "@/lib/mock-data";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -58,8 +58,8 @@ const conditionLabels: Record<string, string> = {
   D: "D - 難あり",
 };
 
-export default function InventoryDetailPage({ params }: { params: Promise<{ id: string }> }) {
-  const { id } = use(params);
+export default function InventoryDetailPage({ params }: { params: { id: string } }) {
+  const { id } = params;
   const item = inventories.find((i) => i.id === id);
 
   if (!item) {

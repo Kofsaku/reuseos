@@ -1,6 +1,6 @@
 "use client";
 
-import { use, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import {
   ArrowLeft,
@@ -71,9 +71,9 @@ function getStatusDotColor(status: string) {
 export default function CustomerDetailPage({
   params,
 }: {
-  params: Promise<{ id: string }>;
+  params: { id: string };
 }) {
-  const { id } = use(params);
+  const { id } = params;
   const customer = customers.find((c) => c.id === id);
 
   if (!customer) {

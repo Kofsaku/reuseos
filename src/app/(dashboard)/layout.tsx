@@ -28,7 +28,6 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
-  DropdownMenuLabel,
 } from "@/components/ui/dropdown-menu";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -167,7 +166,9 @@ function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
             </div>
           </DropdownMenuTrigger>
           <DropdownMenuContent side="top" align="start" className="w-56">
-            <DropdownMenuLabel>アカウント</DropdownMenuLabel>
+            <div className="px-1.5 py-1 text-xs font-medium text-muted-foreground">
+              アカウント
+            </div>
             <DropdownMenuSeparator />
             <DropdownMenuItem>
               <LogOut className="mr-2 h-4 w-4" />
@@ -270,7 +271,9 @@ export default function DashboardLayout({
                 </span>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="w-48">
-                <DropdownMenuLabel>管理者ユーザー</DropdownMenuLabel>
+                <div className="px-1.5 py-1 text-xs font-medium text-muted-foreground">
+                  管理者ユーザー
+                </div>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>
                   <Settings className="mr-2 h-4 w-4" />
