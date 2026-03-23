@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import {
   LayoutDashboard,
   ShoppingBag,
@@ -90,6 +90,7 @@ function NavLink({
 
 function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
   const pathname = usePathname();
+  const router = useRouter();
 
   return (
     <div className="flex h-full flex-col border-r border-slate-200 bg-white">
@@ -170,7 +171,7 @@ function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
               アカウント
             </div>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>
+            <DropdownMenuItem onClick={() => router.push("/login")}>
               <LogOut className="mr-2 h-4 w-4" />
               ログアウト
             </DropdownMenuItem>
@@ -187,6 +188,7 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
+  const router = useRouter();
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
   const currentLabel =
@@ -280,7 +282,7 @@ export default function DashboardLayout({
                   設定
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem>
+                <DropdownMenuItem onClick={() => router.push("/login")}>
                   <LogOut className="mr-2 h-4 w-4" />
                   ログアウト
                 </DropdownMenuItem>
